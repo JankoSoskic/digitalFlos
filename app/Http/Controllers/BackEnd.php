@@ -39,7 +39,7 @@ class BackEnd extends Controller
             ["email","=",$request->input("email")],
             ["password","=",md5($request->input("lozinka"))]
         ])->get();
-        if(count($pronadjeniCovek)>1){
+        if(count($pronadjeniCovek) != 1){
             array_push($greske,"Da li ste dobro upisali kredencijale ?");
             return redirect(route("login"));
         }
