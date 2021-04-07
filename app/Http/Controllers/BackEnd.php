@@ -40,7 +40,8 @@ class BackEnd extends Controller
             ["password","=",md5($request->input("lozinka"))]
         ])->get();
         if(count($pronadjeniCovek)>1){
-            array_push($greske,"Doslo je do nekakve greske, molim pokusajte kasnije");
+            array_push($greske,"Da li ste dobro upisali kredencijale ?");
+            return redirect(route("login"));
         }
         else{
             session(["korisnik"=>$pronadjeniCovek]);
